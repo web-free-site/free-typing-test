@@ -6,11 +6,18 @@ import {
   FiSend,
 } from "react-icons/fi";
 import { useSmartBack } from "../hooks/useSmartBack";
+import Seo from "../components/seo/Seo";
 
 export default function AboutPage({ isLight }) {
   const goBack = useSmartBack("/");
 
   return (
+    <>
+    <Seo
+      title="About | Free Typing Test"
+      description="About Free Typing Test, a free in-browser WPM test based on the MIT-licensed RhythmKey project. No sign-up; results stay on your device."
+      path="/about"
+    />
     <div
       className={`h-full p-8 ${
         isLight ? "bg-white" : "bg-[#111113]"
@@ -298,5 +305,6 @@ export default function AboutPage({ isLight }) {
         </ul>
       </div>
     </div>
+    </>
   );
 }

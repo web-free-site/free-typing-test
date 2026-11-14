@@ -2,6 +2,7 @@ import React from "react";
 import { useStats } from "../hooks/useStats";
 import { ArrowLeft, BarChart2, Trash2 } from "lucide-react";
 import { useSmartBack } from "../hooks/useSmartBack";
+import Seo from "../components/seo/Seo";
 
 export default function StatsPage({ isLight }) {
   const { stats, clearStats } = useStats();
@@ -20,6 +21,12 @@ export default function StatsPage({ isLight }) {
     stats.length > 0 ? Math.max(...stats.map((s) => s.accuracy)) : 0;
 
   return (
+    <>
+    <Seo
+      title="Stats | Free Typing Test"
+      description="View your local typing test history, average WPM, accuracy, and best scores. Stored only in your browser."
+      path="/stats"
+    />
     <div
       className={`min-h-screen ${
         isLight ? "bg-[#FFFFFF] text-zinc-800" : "bg-[#111113] text-zinc-200"
@@ -175,5 +182,6 @@ export default function StatsPage({ isLight }) {
         </div>
       </div>
     </div>
+    </>
   );
 }
