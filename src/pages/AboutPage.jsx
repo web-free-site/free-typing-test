@@ -35,7 +35,7 @@ export default function AboutPage({ isLight }) {
             isLight ? "text-gray-900" : "text-white"
           } mb-6`}
         >
-          About RhythmKey
+          About Free Typing Test
         </h1>
 
         <p
@@ -44,9 +44,18 @@ export default function AboutPage({ isLight }) {
           } leading-relaxed mb-4`}
         >
           <strong className={isLight ? "text-gray-900" : "text-white"}>
-            RhythmKey
+            Free Typing Test
           </strong>{" "}
-          is a free, open‑source typing test application built to help you
+          is a rebrand and extension of the MIT-licensed{" "}
+          <a
+            href="https://github.com/bilalmlkdev/rhythmkey"
+            className="text-[#9b72ff] hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            RhythmKey
+          </a>{" "}
+          project by Bilal Malik. It helps you
           improve your typing speed and accuracy. It offers a clean,
           distraction‑free interface with live stats, customizable settings, and
           support for multiple test modes including time, words, quotes,
@@ -58,7 +67,7 @@ export default function AboutPage({ isLight }) {
             isLight ? "text-gray-700" : "text-gray-300"
           } leading-relaxed mb-8`}
         >
-          RhythmKey is designed to be lightweight and fully client‑side,
+          The app is lightweight and fully client‑side,
           leveraging modern web technologies for a smooth typing experience. All
           your data stays locally in your browser-no account needed, no
           tracking, and complete privacy.
@@ -96,7 +105,17 @@ export default function AboutPage({ isLight }) {
           >
             RhythmKey
           </a>
-          , inspired by modern typing tools like Monkeytype and Keybr.
+          , inspired by modern typing tools like Monkeytype and Keybr. This
+          deployment is part of the{" "}
+          <a
+            href="https://web-free.site"
+            className="text-[#9b72ff] hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            web-free.site
+          </a>{" "}
+          hub.
         </p>
 
         {/* Contact & Support Section */}

@@ -63,6 +63,19 @@ export default function ResultActions({
                 : "bg-[#18181b] border-zinc-800 text-zinc-300"
             } border rounded-xl shadow-2xl py-1.5 z-50 text-[11px] flex flex-col animate-in fade-in zoom-in-95 slide-in-from-bottom-2 duration-150 fill-mode-both`}
           >
+            <button
+              onClick={() => handleDownload("certificate")}
+              className={`px-3 py-2 text-left font-semibold transition-colors ${
+                isLight
+                  ? "hover:bg-zinc-100 hover:text-[#9b72ff] text-[#9b72ff]"
+                  : "hover:bg-zinc-800/60 text-[#9b72ff]"
+              }`}
+            >
+              Certificate (PNG)
+            </button>
+            <div
+              className={`my-1 border-t ${isLight ? "border-zinc-200" : "border-zinc-800/80"}`}
+            />
             <div className="px-3 py-1 font-semibold text-zinc-500 text-[10px] uppercase tracking-wider">
               Data Formats
             </div>
@@ -133,7 +146,7 @@ export default function ResultActions({
             >
               <span>Calculation Formulas</span>
               <span className="text-[10px] text-[#9b72ff]">
-                RhythmKey Metrics
+                Free Typing Test Metrics
               </span>
             </div>
             <div className="space-y-2.5 text-[11px] text-zinc-500">

@@ -40,7 +40,7 @@ export default function SettingsModal({
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-bold">RhythmKey Settings</h2>
+          <h2 className="text-sm font-bold">Free Typing Test Settings</h2>
           <button
             onClick={onClose}
             className={`p-1.5 rounded-lg transition-colors ${
@@ -186,8 +186,10 @@ export default function SettingsModal({
               onChange={(v) => updateSetting("language", v)}
               options={[
                 { value: "en", label: "English" },
+                { value: "fr", label: "French (accents)" },
+                { value: "fr_plain", label: "French (no accents)" },
+                { value: "sw", label: "Swahili" },
                 { value: "es", label: "Spanish" },
-                { value: "fr", label: "French" },
                 { value: "de", label: "German" },
               ]}
               isLight={isLight}

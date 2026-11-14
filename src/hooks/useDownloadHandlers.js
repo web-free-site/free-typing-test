@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { downloadCertificatePng } from "../utils/certificate";
 
 export function useDownloadHandlers({
   wpm,
@@ -18,7 +19,11 @@ export function useDownloadHandlers({
     (format) => {
       setShowDownloadMenu(false);
 
-      if (format === "json") {
+      if (format === "certificate") {
+        const name =
+          window.prompt("Name for your certificate (optional):", "") ?? "";
+        downloadCertificatePng({ name, wpm, accuracy, isLight });
+      } else if (format === "json") {
         const dataStr =
           "data:text/json;charset=utf-8," +
           encodeURIComponent(
@@ -38,7 +43,7 @@ export function useDownloadHandlers({
           );
         const a = document.createElement("a");
         a.href = dataStr;
-        a.download = "RhythmKey_stats.json";
+        a.download = "free-typing-test_stats.json";
         a.click();
         a.remove();
       } else if (format === "csv") {
@@ -47,12 +52,12 @@ export function useDownloadHandlers({
           history.map((e) => `${e.time},${e.wpm},${e.accuracy}`).join("\n");
         const a = document.createElement("a");
         a.href = encodeURI(csvContent);
-        a.download = "RhythmKey_stats.csv";
+        a.download = "free-typing-test_stats.csv";
         a.click();
         a.remove();
       } else if (format === "markdown") {
         const mdContent =
-          `# RhythmKey Typing Test Results\n\n- **WPM**: ${wpm}\n- **Accuracy**: ${accuracy}%\n- **Characters**: ${correctChars}/${incorrectChars}/${totalChars}\n- **Corrections**: ${corrections}\n\n## History Log\n| Time (s) | WPM | Accuracy (%) |\n|---|---|---|\n` +
+          `# Free Typing Test Results\n\n- **WPM**: ${wpm}\n- **Accuracy**: ${accuracy}%\n- **Characters**: ${correctChars}/${incorrectChars}/${totalChars}\n- **Corrections**: ${corrections}\n\n## History Log\n| Time (s) | WPM | Accuracy (%) |\n|---|---|---|\n` +
           history
             .map((e) => `| ${e.time} | ${e.wpm} | ${e.accuracy} |`)
             .join("\n");
@@ -61,7 +66,7 @@ export function useDownloadHandlers({
         });
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
-        a.download = "RhythmKey_stats.md";
+        a.download = "free-typing-test_stats.md";
         a.click();
         a.remove();
       } else if (format === "svg" && svgRef.current) {
@@ -80,7 +85,7 @@ export function useDownloadHandlers({
         });
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
-        a.download = "RhythmKey_graph.svg";
+        a.download = "free-typing-test_graph.svg";
         a.click();
         a.remove();
       } else if ((format === "png" || format === "jpg") && svgRef.current) {
@@ -105,7 +110,7 @@ export function useDownloadHandlers({
             format === "png" ? "image/png" : "image/jpeg",
             1.0,
           );
-          a.download = `RhythmKey_graph.${format}`;
+          a.download = `free-typing-test_graph.${format}`;
           a.click();
           a.remove();
         };

@@ -6,6 +6,7 @@ export function useTypingTest({
   autoFocus = true,
   isPaused = false,
   initialConfig = {},
+  language = "en",
 } = {}) {
   // states
   const [hasPunctuation, setHasPunctuation] = useState(
@@ -93,7 +94,7 @@ export function useTypingTest({
         hasSymbols,
         hasPunctuation,
         countOverride,
-        language: "en",
+        language,
       });
     },
     [
@@ -105,6 +106,7 @@ export function useTypingTest({
       hasSymbols,
       hasPunctuation,
       customText,
+      language,
     ],
   );
 

@@ -14,6 +14,9 @@ import { useTypingTest } from "../hooks/useTypingTest";
 import { useSettings } from "../hooks/useSettings";
 import { useStats } from "../hooks/useStats";
 import { useTypingHandlers } from "../hooks/useTypingHandlers";
+import Seo from "../components/seo/Seo";
+import AdShell from "../components/ads/AdShell";
+import SiteFooter from "../components/layout/SiteFooter";
 
 // wrong sound import
 import wrongSound from "../sounds/wrong.mp3";
@@ -28,6 +31,14 @@ export default function MainPage({ isLight, theme, setTheme }) {
   const [isPaused, setIsPaused] = useState(false);
   const [showCustomTextModal, setShowCustomTextModal] = useState(false);
   const [lastKeyPressed, setLastKeyPressed] = useState("");
+
+  useEffect(() => {
+    const lang = searchParams.get("lang");
+    const layout = searchParams.get("layout");
+    if (lang) updateSetting("language", lang);
+    if (layout) updateSetting("keyboardLayout", layout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run when query changes
+  }, [searchParams]);
 
   // Parse URL params
   const initialConfig = useMemo(() => {
@@ -56,6 +67,7 @@ export default function MainPage({ isLight, theme, setTheme }) {
     autoFocus: settings.autoFocus,
     isPaused,
     initialConfig,
+    language: settings.language,
   });
 
   const { saveResult } = useStats();
@@ -295,16 +307,22 @@ export default function MainPage({ isLight, theme, setTheme }) {
   };
 
   return (
-    <div
-      className={`min-h-screen ${
-        isLight ? "bg-[#FFFFFF] text-zinc-800" : "bg-[#111113] text-[#5e5e5e]"
-      } font-grotesk flex flex-col items-center gap-4 selection:bg-orange-500/30 transition-colors duration-200`}
-      // `refs` is a plain object bundling several ref objects returned by
-      // useTypingTest — this is a property lookup, not a .current read.
-      // eslint-disable-next-line react-hooks/refs
-      ref={refs.containerRef}
-    >
-      <Header
+    <AdShell showSidebar={false} showMid={false}>
+      <Seo
+        path="/app/taketypingtest"
+        title="Take typing test | Free Typing Test"
+        description="Start a timed or word-count typing test with live WPM and accuracy. English, French, Swahili, AZERTY, and free PNG certificate."
+      />
+      <div
+        className={`min-h-screen ${
+          isLight ? "bg-[#FFFFFF] text-zinc-800" : "bg-[#111113] text-[#5e5e5e]"
+        } font-grotesk flex flex-col items-center gap-4 selection:bg-orange-500/30 transition-colors duration-200`}
+        // `refs` is a plain object bundling several ref objects returned by
+        // useTypingTest — this is a property lookup, not a .current read.
+        // eslint-disable-next-line react-hooks/refs
+        ref={refs.containerRef}
+      >
+        <Header
         restartTest={actions.restartTest}
         totalKeystrokes={state.totalKeystrokes}
         showSettingsModal={showSettingsModal}
@@ -441,39 +459,7 @@ export default function MainPage({ isLight, theme, setTheme }) {
                  </div>
                </div>
              )}
-            <footer
-              className={`w-full text-center text-xs tracking-wide transition-colors duration-200 mt-1 ${
-                isLight ? "text-zinc-400" : "text-[#5e5e5e]"
-              }`}
-            >
-              Built by{" "}
-              <a
-                href="https://bilalmlkdev.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-medium transition-colors ${
-                  isLight
-                    ? "text-zinc-700 hover:text-[#9b72ff]"
-                    : "text-zinc-400 hover:text-[#9b72ff]"
-                }`}
-              >
-                Bilal Malik
-              </a>
-              . The source code is available on{" "}
-              <a
-                href="https://github.com/bilalmlkdev/rhythmkey.git"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-medium transition-colors ${
-                  isLight
-                    ? "text-zinc-700 hover:text-[#9b72ff]"
-                    : "text-zinc-400 hover:text-[#9b72ff]"
-                }`}
-              >
-                GitHub
-              </a>
-              .
-            </footer>
+            <SiteFooter isLight={isLight} compact />
           </div>
         ) : (
           <ResultScreen
@@ -500,21 +486,22 @@ export default function MainPage({ isLight, theme, setTheme }) {
 
       
 
-      <CustomTextModal
-        isOpen={showCustomTextModal}
-        onClose={() => {
-          setShowCustomTextModal(false);
-          if (
-            config.testType === "custom" &&
-            !state.customText &&
-            !customTextSubmittedRef.current
-          ) {
-            config.setTestType(previousTestTypeRef.current);
-          }
-        }}
-        onStart={handleCustomTextStart}
-        isLight={isLight}
-      />
-    </div>
+        <CustomTextModal
+          isOpen={showCustomTextModal}
+          onClose={() => {
+            setShowCustomTextModal(false);
+            if (
+              config.testType === "custom" &&
+              !state.customText &&
+              !customTextSubmittedRef.current
+            ) {
+              config.setTestType(previousTestTypeRef.current);
+            }
+          }}
+          onStart={handleCustomTextStart}
+          isLight={isLight}
+        />
+      </div>
+    </AdShell>
   );
 }

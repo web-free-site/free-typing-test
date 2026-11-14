@@ -23,7 +23,9 @@ const defaultSettings = {
 
 export function useSettings() {
   const [settings, setSettings] = useState(() => {
-    const saved = localStorage.getItem("RhythmKey_settings");
+    const saved =
+      localStorage.getItem("FreeTypingTest_settings") ||
+      localStorage.getItem("RhythmKey_settings");
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -36,7 +38,7 @@ export function useSettings() {
   });
 
   useEffect(() => {
-    localStorage.setItem("RhythmKey_settings", JSON.stringify(settings));
+    localStorage.setItem("FreeTypingTest_settings", JSON.stringify(settings));
   }, [settings]);
 
   const updateSetting = (key, value) => {

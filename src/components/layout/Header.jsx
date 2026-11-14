@@ -58,7 +58,7 @@ export default function Header({
 
       <TransitionLink to="/" className="flex items-center gap-2">
         <span className="text-[#9b72ff] text-xl font-bold tracking-tighter">
-          RhythmKey
+          Free Typing Test
         </span>
         <div className="grid grid-cols-2 gap-0.5">
           <div className="w-1.5 h-1.5 bg-[#9b72ff] rounded-sm"></div>

@@ -2,15 +2,15 @@ import React from "react";
 import { TransitionLink } from "../layout/PageTransition";
 import { ui } from "./utils";
 
-export default function Footer({ isLight }) {
+export default function Footer({ isLight, locale = "en" }) {
   const u = ui(isLight);
   const link = `${u.muted} hover:text-current transition-colors`;
 
   return (
     <footer className="mt-auto">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-6 sm:px-10 py-6">
-        <TransitionLink to="/" className="flex items-center gap-2" aria-label="RhythmKey home">
-          <span className={`${u.accent} text-sm font-bold tracking-tighter`}>RhythmKey</span>
+        <TransitionLink to={locale === "fr" ? "/fr/" : "/"} className="flex items-center gap-2" aria-label="Free Typing Test home">
+          <span className={`${u.accent} text-sm font-bold tracking-tighter`}>Free Typing Test</span>
           <span className="grid grid-cols-2 gap-0.5">
             <span className={`w-1.5 h-1.5 ${u.accentBg} rounded-sm`}></span>
             <span className={`w-1.5 h-1.5 ${u.accentBg} rounded-sm`}></span>
@@ -29,7 +29,10 @@ export default function Footer({ isLight }) {
           </a>
         </nav>
 
-        <span className={`text-xs ${u.faint}`}>&copy; {new Date().getFullYear()} RhythmKey</span>
+        <span className={`text-xs ${u.faint}`}>
+          <a href="https://web-free.site" className={link} rel="noopener noreferrer">web-free.site</a>
+          {" · "}&copy; {new Date().getFullYear()}
+        </span>
       </div>
     </footer>
   );

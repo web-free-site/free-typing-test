@@ -1,6 +1,8 @@
 import { WORDS as WORDS_EN } from "../data/words";
 import { WORDS_ES } from "../data/words_es";
 import { WORDS_FR } from "../data/words_fr";
+import { WORDS_FR_PLAIN } from "../data/words_fr_plain";
+import { WORDS_SW } from "../data/words_sw";
 import { WORDS_DE } from "../data/words_de";
 import { NUMBERS } from "../data/numbers";
 import { SYMBOLS } from "../data/symbols";
@@ -11,6 +13,8 @@ const WORD_BANKS = {
   en: WORDS_EN,
   es: WORDS_ES,
   fr: WORDS_FR,
+  fr_plain: WORDS_FR_PLAIN,
+  sw: WORDS_SW,
   de: WORDS_DE,
 };
 

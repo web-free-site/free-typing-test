@@ -7,7 +7,7 @@ function LogoMark({ isLight }) {
   const u = ui(isLight);
   return (
     <span className="flex items-center gap-2">
-      <span className={`${u.accent} text-xl font-bold tracking-tighter`}>RhythmKey</span>
+      <span className={`${u.accent} text-xl font-bold tracking-tighter`}>Free Typing Test</span>
       <span className="grid grid-cols-2 gap-0.5">
         <span className={`w-1.5 h-1.5 ${u.accentBg} rounded-sm`}></span>
         <span className={`w-1.5 h-1.5 ${u.accentBg} rounded-sm`}></span>
@@ -18,7 +18,7 @@ function LogoMark({ isLight }) {
   );
 }
 
-export default function Header({ isLight, setTheme }) {
+export default function Header({ isLight, setTheme, locale = "en" }) {
   const u = ui(isLight);
   const link = `${u.muted} hover:text-current transition-colors`;
 
@@ -29,7 +29,7 @@ export default function Header({ isLight, setTheme }) {
       }`}
     >
       <div className="max-w-[1120px] mx-auto flex items-center justify-between px-6 h-14">
-        <TransitionLink to="/" aria-label="RhythmKey home">
+        <TransitionLink to={locale === "fr" ? "/fr/" : "/"} aria-label="Free Typing Test home">
           <LogoMark isLight={isLight} />
         </TransitionLink>
 

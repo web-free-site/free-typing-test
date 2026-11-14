@@ -1,0 +1,65 @@
+{
+  "siteId": "6200500",
+  "domain": "https://free-typing-test.web-free.site",
+  "units": {
+    "popunder": {
+      "id": "32275433",
+      "script": "https://abscloud.org/1/7ae3be58445d9b787f76a9576efd0f4e"
+    },
+    "socialBar": {
+      "id": "32275435",
+      "script": "https://bauval.org/14/cd1e0abd708eb1f9bb483b70d9698211"
+    },
+    "native": {
+      "id": "32275434",
+      "script": "https://bauval.org/21/cc77b4113ecbb38adcefcdc594632a11",
+      "containerId": "container-cc77b4113ecbb38adcefcdc594632a11"
+    },
+    "smartlink": {
+      "id": "32275436",
+      "url": "https://araplhn.org/4/bd5fc6470e86f606f05be98ad3d2967d"
+    },
+    "banner728x90": {
+      "id": "32275442",
+      "key": "b4d50d0723f2d2fa3762dae9b995470b",
+      "width": 728,
+      "height": 90,
+      "src": "https://bauval.org/22/b4d50d0723f2d2fa3762dae9b995470b"
+    },
+    "banner468x60": {
+      "id": "32275437",
+      "key": "f84d4e4c81869c5354ac7a6ae8071b54",
+      "width": 468,
+      "height": 60,
+      "src": "https://bauval.org/22/f84d4e4c81869c5354ac7a6ae8071b54"
+    },
+    "banner320x50": {
+      "id": "32275439",
+      "key": "685ca763bf55db297f079ee43c70f91c",
+      "width": 320,
+      "height": 50,
+      "src": "https://bauval.org/22/685ca763bf55db297f079ee43c70f91c"
+    },
+    "banner300x250": {
+      "id": "32275440",
+      "key": "34276da68c523eb24fd306a592c08e05",
+      "width": 300,
+      "height": 250,
+      "src": "https://bauval.org/22/34276da68c523eb24fd306a592c08e05"
+    },
+    "banner160x600": {
+      "id": "32275441",
+      "key": "e16b0767572d0306bb07d43edd47e69f",
+      "width": 160,
+      "height": 600,
+      "src": "https://bauval.org/22/e16b0767572d0306bb07d43edd47e69f"
+    },
+    "banner160x300": {
+      "id": "32275438",
+      "key": "d548d638e44be34c472b21a0b608a08a",
+      "width": 160,
+      "height": 300,
+      "src": "https://bauval.org/22/d548d638e44be34c472b21a0b608a08a"
+    }
+  }
+}
