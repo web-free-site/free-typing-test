@@ -17,11 +17,9 @@ export default function Hero({ isLight, locale = "en" }) {
     <section className={`border-b ${u.line} px-4 sm:px-10 pt-14 sm:pt-25`}>
       <div className="flex flex-col items-center text-center">
         {!fr && (
-        <h1 className="font-display font-bold tracking-normal text-[2.3rem] sm:text-[4.4rem] leading-[1.08]">
-          Free typing test,
-          <br />
-          beat your <span className={u.accent}>record</span>.
-        </h1>
+          <h1 className="font-display font-bold tracking-normal text-[2.3rem] sm:text-[4.4rem] leading-[1.08]">
+            Free Typing Test
+          </h1>
         )}
 
         <p className={`mt-6 max-w-[520px] text-sm sm:text-base leading-relaxed ${u.muted}`}>

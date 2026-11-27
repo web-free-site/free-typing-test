@@ -10,7 +10,7 @@ export const ROUTE_SEO = [
     path: "/",
     title: "Free Typing Test — WPM, accuracy & free PNG certificate",
     description:
-      "Take a free online typing test in English, French (AZERTY), or Swahili. Live WPM, accuracy stats, and a downloadable PNG certificate.",
+      "Free typing test in your browser: live WPM and accuracy in English, French (AZERTY), or Swahili. No sign-up; download a PNG certificate when you finish.",
     lang: "en",
   },
   {
