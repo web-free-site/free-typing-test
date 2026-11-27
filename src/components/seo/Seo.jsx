@@ -87,12 +87,14 @@ export default function Seo({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }}
       />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
+      {faqSchema &&
+        typeof document !== "undefined" &&
+        !document.getElementById("homepage-faq-ld") && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
     </>
   );
 }
