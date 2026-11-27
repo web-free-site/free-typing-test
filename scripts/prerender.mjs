@@ -7,6 +7,10 @@ import {
   canonicalForPath,
 } from "./route-seo.mjs";
 import { routeToFile, runNodeFallback } from "./prerender-fallback.mjs";
+import {
+  applyHomepageStaticInjection,
+  countH1,
+} from "./homepage-static-injection.mjs";
 
 const PREVIEW_PORT = 4173;
 const BASE = `http://127.0.0.1:${PREVIEW_PORT}`;
@@ -211,6 +215,20 @@ async function main() {
   }
 
   copyStaticSeoFiles();
+
+  const homeFile = routeToFile("/");
+  const homeHtml = applyHomepageStaticInjection(
+    readFileSync(homeFile, "utf8"),
+  );
+  writeFileSync(homeFile, homeHtml, "utf8");
+  const h1Count = countH1(homeHtml);
+  if (h1Count !== 1) {
+    console.error(
+      `Homepage static validation failed: expected 1 <h1>, found ${h1Count}`,
+    );
+    process.exit(1);
+  }
+  console.log(`Homepage static injection OK (${h1Count} h1).`);
 
   const ok = validatePrerenderOutputs();
   if (!ok) {
