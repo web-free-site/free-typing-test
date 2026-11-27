@@ -50,9 +50,11 @@ export default function Seo({
     upsertMeta("property", "og:url", canonicalWithSlash);
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:site_name", SITE_NAME);
+    upsertMeta("property", "og:image", `${SITE_URL}/og.png`);
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:image", `${SITE_URL}/og.png`);
 
     upsertLink("canonical", canonicalWithSlash);
 
